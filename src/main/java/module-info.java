@@ -51,4 +51,7 @@ module pl.javahowtoprogramgui {
 
     opens pl.javahowtoprogramgui.section_6.e6_6 to javafx.fxml;
     exports pl.javahowtoprogramgui.section_6.e6_6;
+
+    opens pl.javahowtoprogramgui.section_6.e6_7 to javafx.fxml;
+    exports pl.javahowtoprogramgui.section_6.e6_7;
 }
