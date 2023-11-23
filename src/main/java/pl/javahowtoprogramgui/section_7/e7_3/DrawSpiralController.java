@@ -31,7 +31,7 @@ public class DrawSpiralController {
                     radius+counter*2*radius ,
                     radius+counter*2*radius,
                     0,
-                    (counter%2!=0)? 180 : -180,
+                    (counter%2==0)? 180 : -180,
                     ArcType.OPEN);
         }
     }
