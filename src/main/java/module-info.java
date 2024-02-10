@@ -84,4 +84,7 @@ module pl.javahowtoprogramgui {
 
     opens pl.javahowtoprogramgui.section_12.t_12_4 to javafx.fxml;
     exports pl.javahowtoprogramgui.section_12.t_12_4;
+
+    opens pl.javahowtoprogramgui.section_12.t_12_5 to javafx.fxml;
+    exports pl.javahowtoprogramgui.section_12.t_12_5;
 }
