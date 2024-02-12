@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.javahowtoprogramgui.section_13.e_13_1.PainterController">
+   <children>
+      <BorderPane prefHeight="640.0" prefWidth="800.0">
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+         <left>
+            <VBox maxWidth="-Infinity" spacing="8.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="8.0" />
+               </BorderPane.margin>
+               <children>
+                  <TitledPane animated="false" text="Kolor rysowania">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox spacing="8.0">
+                                 <children>
+                                    <RadioButton fx:id="blackRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" selected="true" text="Czarny">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="colorToggleGroup" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets top="8.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="redRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Czerwony" toggleGroup="$colorToggleGroup">
+                                       <padding>
+                                          <Insets top="8.0" />
+                                       </padding></RadioButton>
+                                    <RadioButton fx:id="greenRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Zielony" toggleGroup="$colorToggleGroup">
+                                       <padding>
+                                          <Insets top="8.0" />
+                                       </padding></RadioButton>
+                                    <RadioButton fx:id="blueRadioButton" mnemonicParsing="false" onAction="#colorRadioButtonSelected" text="Niebieski" toggleGroup="$colorToggleGroup">
+                                       <padding>
+                                          <Insets top="8.0" />
+                                       </padding></RadioButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="8.0" top="8.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane animated="false" text="Rozmiar ołówka">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <VBox spacing="8.0">
+                                 <children>
+                                    <RadioButton fx:id="smallRadioButton" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Mały">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="sizeToggleGroup" />
+                                       </toggleGroup>
+                                       <padding>
+                                          <Insets top="8.0" />
+                                       </padding>
+                                    </RadioButton>
+                                    <RadioButton fx:id="mediumRadioButton" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" selected="true" text="Średni" toggleGroup="$sizeToggleGroup">
+                                       <padding>
+                                          <Insets top="8.0" />
+                                       </padding></RadioButton>
+                                    <RadioButton fx:id="largeRadioButton" mnemonicParsing="false" onAction="#sizeRadioButtonSelected" text="Duży" toggleGroup="$sizeToggleGroup">
+                                       <padding>
+                                          <Insets top="8.0" />
+                                       </padding></RadioButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="8.0" top="8.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <Button fx:id="undoButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#undoButtonPressed" text="Cofnij" />
+                  <Button fx:id="clearButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearButtonPressed" text="Wyczyść" />
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <Pane fx:id="drawingAreaPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseDragged="#drawingAreaMouseDragged" style="-fx-background-color: white;" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
