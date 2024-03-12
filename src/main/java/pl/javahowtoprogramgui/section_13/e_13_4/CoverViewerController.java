@@ -22,11 +22,11 @@ public class CoverViewerController {
 
     public void initialize() {
         books.add(new Book("Android How to Program",
-                "/images/small/androidhtp.jpg", "/images/large/androidhtp.jpg"));
+                "/images/small/androidhtp.jpg", "src/main/resources/pl/javahowtoprogramgui/section_13/e_13_3/images/large/androidhtp.jpg"));
         books.add(new Book("C How to Program",
-                "/images/small/chtp.jpg", "/images/large/chtp.jpg"));
+                "/images/small/chtp.jpg", "pl/javahowtoprogramgui/section_13/e_13_3/images/large/chtp.jpg"));
         books.add(new Book("C++ How to Program",
-                "/images/small/cpphtp.jpg", "/images/large/cpphtp.jpg"));
+                "/images/small/cpphtp.jpg", "src/main/resources/pl/javahowtoprogramgui/section_13/e_13_3/images/large/cpphtp.jpg"));
         books.add(new Book("Internet and World Wide Web How to Program",
                 "/images/small/iw3htp.jpg", "/images/large/iw3htp.jpg"));
         books.add(new Book("Java How to Program",

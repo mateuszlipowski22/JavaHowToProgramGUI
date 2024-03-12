@@ -40,7 +40,7 @@ public class CoverViewerController {
                 .addListener(new ChangeListener<Book>() {
                     @Override
                     public void changed(ObservableValue<? extends Book> observableValue, Book oldValue, Book newValue) {
-                        coverImageViewer.setImage(new Image(String.valueOf(getClass().getResource(newValue.getLargeImage()))));
+                        coverImageViewer.setImage(new Image(getClass().getResourceAsStream(newValue.getLargeImage())));
                     }
                 });
     }
