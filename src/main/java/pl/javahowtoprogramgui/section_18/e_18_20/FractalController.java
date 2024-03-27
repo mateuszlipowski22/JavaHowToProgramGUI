@@ -66,7 +66,7 @@ public class FractalController {
             int yC=(yA+yB)/2;
 
             int xD=xA+(xC-xA)/2-(yC-yA)/2;
-            int yD=xA+(yC-yA)/2+(xC-xA)/2;
+            int yD=yA+(yC-yA)/2+(xC-xA)/2;
 
             drawFractal(level-1,xD,yD,xA,yA);
             drawFractal(level-1,xD,yD,xC,yC);
