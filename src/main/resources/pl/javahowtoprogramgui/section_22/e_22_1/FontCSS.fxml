@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox styleClass="vbox" stylesheets="FontsCSS.css"
+      xmlns="http://javafx.com/javafx/8.0.60"
+      xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+        <Label fx:id="label1" text="Arial 14pt pogrubiona"/>
+        <Label fx:id="label2" text="Times New Roman 16pt zwykła"/>
+        <Label fx:id="label3" text="Courier New 16pt pogrubiona z kursywą"/>
+        <Label fx:id="label4" text="Default font 14pt z podkreśleniem"/>
+        <Label fx:id="label5" text="Default font 14pt z przekreśleniem"/>
+    </children>
+</VBox>
+
+
