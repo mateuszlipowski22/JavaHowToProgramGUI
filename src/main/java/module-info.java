@@ -9,6 +9,7 @@ module pl.javahowtoprogramgui {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
+    requires javafx.media;
 
     opens pl.javahowtoprogramgui.section_4.e1 to javafx.fxml;
     exports pl.javahowtoprogramgui.section_4.e1;
@@ -141,4 +142,7 @@ module pl.javahowtoprogramgui {
 
     opens pl.javahowtoprogramgui.section_22.e_22_7 to javafx.fxml;
     exports pl.javahowtoprogramgui.section_22.e_22_7;
+
+    opens pl.javahowtoprogramgui.section_22.e_22_8 to javafx.fxml;
+    exports pl.javahowtoprogramgui.section_22.e_22_8;
 }
