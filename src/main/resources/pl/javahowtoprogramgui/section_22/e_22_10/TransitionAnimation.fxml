@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
+
+<?import javafx.scene.shape.Rectangle?>
+<Pane id="Pane"
+      prefHeight="200.0" prefWidth="180.0"
+      stylesheets="@TransitionAnimation.css"
+      xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="pl.javahowtoprogramgui.section_22.e_22_10.TransitionAnimationController">
+   <children>
+       <Rectangle fx:id="rectangle" height="90.0" layoutX="45.0" layoutY="45.0" width="90.0" />
+       <Button fx:id="startButton" layoutX="38.0" layoutY="161.0" mnemonicParsing="false"
+               onAction="#startButtonPressed" text="Uruchom animacje"/>
+   </children>
+</Pane>
