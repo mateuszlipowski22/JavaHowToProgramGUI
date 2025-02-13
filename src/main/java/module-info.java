@@ -151,4 +151,7 @@ module pl.javahowtoprogramgui {
 
     opens pl.javahowtoprogramgui.section_22.e_22_13 to javafx.fxml;
     exports pl.javahowtoprogramgui.section_22.e_22_13;
+
+    opens pl.javahowtoprogramgui.section_23.e_23_11 to javafx.fxml;
+    exports pl.javahowtoprogramgui.section_23.e_23_11;
 }
