@@ -10,6 +10,8 @@ module pl.javahowtoprogramgui {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
     requires javafx.media;
+    requires java.desktop;
+    requires java.sql;
 
     opens pl.javahowtoprogramgui.section_4.e1 to javafx.fxml;
     exports pl.javahowtoprogramgui.section_4.e1;
