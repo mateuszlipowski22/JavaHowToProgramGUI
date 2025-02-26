@@ -20,11 +20,16 @@ public class DisplayQueryResultsController {
     @FXML private TextArea queryTextArea;
     @FXML private TextField filterTextField;
 
-    private static final String DATABASE_URL = "jdbc:derby:books";
-    private static final String USERNAME = "deitel";
-    private static final String PASSWORD = "deitel";
 
-    private static final String DEFAULT_QUERY = "SELECT * FROM authors";
+//    private static final String DATABASE_URL = "jdbc:derby:books";
+    private static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/result";
+//    private static final String USERNAME = "deitel";
+    private static final String USERNAME = "postgres";
+//    private static final String PASSWORD = "deitel";
+    private static final String PASSWORD = "postgres";
+
+//    private static final String DEFAULT_QUERY = "SELECT * FROM authors";
+    private static final String DEFAULT_QUERY = "select * from result";
 
     private ResultSetTableModel tableModel;
     private TableRowSorter<TableModel> sorter;

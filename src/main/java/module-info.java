@@ -3,6 +3,7 @@ module pl.javahowtoprogramgui {
     requires javafx.fxml;
     requires javafx.web;
     requires javafx.swing;
+    requires org.postgresql.jdbc;
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
