@@ -16,10 +16,11 @@ public class PersonQueries {
     private PreparedStatement selectPeopleByLastName;
     private PreparedStatement insertNewPerson;
 
-    public PersonQueries(String url, String username, String password, String query) throws SQLException {
+//    public PersonQueries(String url, String username, String password, String query) throws SQLException {
+    public PersonQueries() throws SQLException {
 
         try {
-            connection = DriverManager.getConnection(url, username, password);
+            connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
 
             selectAllPeople = connection.prepareStatement("SELECT * FROM Addresses ORDER BY LastName, FirstName");
 
@@ -89,9 +90,9 @@ public class PersonQueries {
     public int addPerson(String firstName, String lastName, String email, String phoneNumber){
         try {
             insertNewPerson.setString(1, firstName);
-            insertNewPerson.setString(1, lastName);
-            insertNewPerson.setString(1, email);
-            insertNewPerson.setString(1, phoneNumber);
+            insertNewPerson.setString(2, lastName);
+            insertNewPerson.setString(3, email);
+            insertNewPerson.setString(4, phoneNumber);
 
             return insertNewPerson.executeUpdate();
         } catch (SQLException e) {
