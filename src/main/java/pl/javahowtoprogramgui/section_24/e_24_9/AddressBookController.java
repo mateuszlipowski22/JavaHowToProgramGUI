@@ -84,13 +84,16 @@ public class AddressBookController {
 
     @FXML
     void findButtonPressed(ActionEvent event) {
-        List<Person> people = personQueries.getPeopleByLastName(findByLastNameTextField.getText() + "%");
+        List<Person> people = personQueries.getPeopleByLastName(
+                findByLastNameTextField.getText() + "%");
 
         if (people.size() > 0) {
             contactList.setAll(people);
             selectFirstEntry();
-        } else {
-            displayAlert(Alert.AlertType.INFORMATION, "Nazwiska nie znaleziono", "Nie ma żadnych wpisów dotyczących podanego nazwiska");
+        }
+        else {
+            displayAlert(Alert.AlertType.INFORMATION, "Nazwiska nie znaleziono",
+                    "Nie ma żadnych wpisów dotyczących podanego nazwiska.");
         }
     }
 

@@ -58,31 +58,30 @@ public class PersonQueries {
     }
 
     public List<Person> getPeopleByLastName(String lastName) {
-
         try {
-            selectPeopleByLastName.setString(1, lastName);
-        } catch (SQLException e) {
-            e.printStackTrace();
+            selectPeopleByLastName.setString(1, lastName); // Ustawia nazwisko
+        }
+        catch (SQLException sqlException) {
+            sqlException.printStackTrace();
             return null;
         }
 
-        try (ResultSet resultSet = selectAllPeople.executeQuery()) {
-            List<Person> results = new ArrayList<>();
+        try (ResultSet resultSet = selectPeopleByLastName.executeQuery()) {
+            List<Person> results = new ArrayList<Person>();
 
             while (resultSet.next()) {
                 results.add(new Person(
-                        resultSet.getInt("AddressID"),
+                        resultSet.getInt("addressID"),
                         resultSet.getString("FirstName"),
                         resultSet.getString("LastName"),
                         resultSet.getString("Email"),
-                        resultSet.getString("PhoneNumber")
-                ));
+                        resultSet.getString("PhoneNumber")));
             }
 
             return results;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        }
+        catch (SQLException sqlException) {
+            sqlException.printStackTrace();
             return null;
         }
     }
