@@ -48,11 +48,13 @@ public class Server extends JFrame {
         }
     }
 
-    private void sendPackageToClient(DatagramPacket receiverPacket){
+    private void sendPackageToClient(DatagramPacket receiverPacket) throws IOException {
         displayMessage("\n\nWysyłanie kopii danych do klienta...");
         DatagramPacket sendPacket = new DatagramPacket(receiverPacket.getData(),
                 receiverPacket.getLength(),
                 receiverPacket.getAddress(),receiverPacket.getPort());
+
+        socket.send(sendPacket);
         displayMessage("\nPakiet wysłany");
 
     }
