@@ -42,7 +42,7 @@ public class TicTacToeServer extends JFrame {
             board[i] = new String("");
         }
 
-        player = new Player[2];
+        players = new Player[2];
         currentPlayer = PLAYER_X;
 
         try {
@@ -60,7 +60,6 @@ public class TicTacToeServer extends JFrame {
         setSize(300, 300);
         setVisible(true);
     }
-
 
     public void execute() {
         for(int i=0;i<players.length;i++){
@@ -161,6 +160,61 @@ public class TicTacToeServer extends JFrame {
             output.flush();
         }
 
+        public void run(){
+            try{
+                displayMessage("Gracz "+mark+" dołączył do gry\n");
+                output.format("%s\n", mark);
+                output.flush();
 
+                if(playerNumber==PLAYER_X){
+                    output.format("%s\n%s","Gracz X dołączył do gry", "Czekamy na drugiego gracza\n");
+                    output.flush();
+                    gameLock.lock();
+
+                    try{
+                        while(suspended){
+                            otherPlayerConnected.await();
+                        }
+                    }catch (InterruptedException interruptedException){
+                        interruptedException.printStackTrace();
+                    }finally {
+                        gameLock.unlock();
+                    }
+
+                    output.format("Drugi gracz dołączył do gry. Twój ruch");
+                    output.flush();
+                }else {
+                    output.format("Gracz O dołączył do gry. Czekaj.\n");
+                    output.flush();
+                }
+
+                while(!isGameOver()){
+                    int location = 0;
+                    if(input.hasNext()){
+                        location=input.nextInt();
+                    }
+
+                    if(validateAndMove(location, playerNumber)){
+                        displayMessage("\nPołożenie : "+location);
+                        output.format("Ruch poprawny.\n");
+                        output.flush();
+                    }else {
+                        output.format("Ruch niepoprawny. Spróbuj ponownie");
+                        output.flush();
+                    }
+                }
+            }finally {
+                try{
+                    connection.close();
+                }catch (IOException ioException){
+                    ioException.printStackTrace();
+                    System.exit(1);
+                }
+            }
+        }
+
+        public void setSuspended(boolean status){
+            suspended=status;
+        }
     }
 }

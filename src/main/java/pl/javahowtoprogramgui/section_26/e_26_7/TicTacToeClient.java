@@ -2,6 +2,8 @@ package pl.javahowtoprogramgui.section_26.e_26_7;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -23,8 +25,8 @@ public class TicTacToeClient extends JFrame implements Runnable {
     private String ticTacToeHost;
     private String myMark;
     private boolean myTurn;
-    private final String X_MARK = 'X';
-    private final String O_MARK = 'O';
+    private final String X_MARK = "X";
+    private final String O_MARK = "O";
 
     public TicTacToeClient(String host) {
         ticTacToeHost = host;
@@ -100,7 +102,7 @@ public class TicTacToeClient extends JFrame implements Runnable {
             displayMessage(message+"\n");
             myTurn=true;
         }else if(message.equals("Przeciwnik wykonał ruch")){
-            int location = input.nextLine();
+            int location = input.nextInt();
             input.nextLine();
             int row = location / 3;
             int column = location % 3;
@@ -123,5 +125,61 @@ public class TicTacToeClient extends JFrame implements Runnable {
         SwingUtilities.invokeLater(
                 () -> squareToMark.setMark(mark)
         );
+    }
+
+    public void sendClickedSquare(int location){
+        if(myTurn){
+            output.format("%d\n", location);
+            output.flush();
+            myTurn = false;
+        }
+    }
+
+    public void setCurrentSquare(Square square){
+        currentSquare = square;
+    }
+
+    private class Square extends JPanel{
+        private String mark;
+        private int location;
+
+        public Square(String squareMark, int squareLocation){
+            mark = squareMark;
+            location=squareLocation;
+
+            addMouseListener(
+                    new MouseAdapter() {
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+                            setCurrentSquare(Square.this);
+                            sendClickedSquare(getSquareLocation());
+                        }
+                    }
+            );
+        }
+
+        public Dimension getPreferredSize(){
+            return new Dimension(30,30);
+        }
+
+        public Dimension getMinimumSize(){
+            return getPreferredSize();
+        }
+
+        public void setMark(String newMark){
+            mark=newMark;
+            repaint();
+        }
+
+        public int getSquareLocation(){
+            return location;
+        }
+
+        public void paintComponent(Graphics g){
+            super.paintComponent(g);
+
+            g.drawRect(0,0,29,29);
+            g.drawString(mark,11,20);
+        }
     }
 }
