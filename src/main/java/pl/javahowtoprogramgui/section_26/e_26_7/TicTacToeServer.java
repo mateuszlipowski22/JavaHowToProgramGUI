@@ -155,7 +155,7 @@ public class TicTacToeServer extends JFrame {
         }
 
         public void otherPlayerMoved(int location){
-            output.format("Przeciwnik wykonał rych\n");
+            output.format("Przeciwnik wykonał ruch\n");
             output.format("%d\n",location);
             output.flush();
         }
@@ -199,7 +199,7 @@ public class TicTacToeServer extends JFrame {
                         output.format("Ruch poprawny.\n");
                         output.flush();
                     }else {
-                        output.format("Ruch niepoprawny. Spróbuj ponownie");
+                        output.format("Ruch niepoprawny. Spróbuj ponownie.\n");
                         output.flush();
                     }
                 }

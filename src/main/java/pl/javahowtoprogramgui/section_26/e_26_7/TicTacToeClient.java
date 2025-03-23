@@ -32,7 +32,7 @@ public class TicTacToeClient extends JFrame implements Runnable {
         ticTacToeHost = host;
         displayArea = new JTextArea(4, 30);
         displayArea.setEditable(false);
-        add(new JScrollPane(displayArea));
+        add(new JScrollPane(displayArea),BorderLayout.SOUTH);
 
         boardPanel = new JPanel();
         boardPanel.setLayout(new GridLayout(3, 3, 0, 0));
@@ -47,7 +47,7 @@ public class TicTacToeClient extends JFrame implements Runnable {
 
         idField = new JTextField();
         idField.setEditable(false);
-        add(idField, BorderLayout.CENTER);
+        add(idField, BorderLayout.NORTH);
 
         pane2 = new JPanel();
         pane2.add(boardPanel, BorderLayout.CENTER);
@@ -145,7 +145,7 @@ public class TicTacToeClient extends JFrame implements Runnable {
 
         public Square(String squareMark, int squareLocation){
             mark = squareMark;
-            location=squareLocation;
+            location = squareLocation;
 
             addMouseListener(
                     new MouseAdapter() {
