@@ -181,7 +181,7 @@ public class TicTacToeServer extends JFrame {
                         gameLock.unlock();
                     }
 
-                    output.format("Drugi gracz dołączył do gry. Twój ruch");
+                    output.format("Drugi gracz dołączył do gry. Twój ruch\n");
                     output.flush();
                 }else {
                     output.format("Gracz O dołączył do gry. Czekaj.\n");
