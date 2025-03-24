@@ -22,7 +22,7 @@ public class TicTacToeServer extends JFrame {
     private int currentPlayer;
     private final static int PLAYER_X = 0;
     private final static int PLAYER_0 = 1;
-    private final static String[] MARKS = {"X", "Y"};
+    private final static String[] MARKS = {"X", "O"};
     private ExecutorService runGame;
     private Lock gameLock;
     private Condition otherPlayerConnected;
