@@ -8,7 +8,7 @@ import java.net.SocketTimeoutException;
 import java.util.Objects;
 import java.util.StringTokenizer;
 
-import static pl.javahowtoprogramgui.section_26.e_24_10.SocketMessengerConstants.*
+import static pl.javahowtoprogramgui.section_26.e_24_10.SocketMessengerConstants.*;
 
 public class MessageReceiver implements Runnable{
     private BufferedReader input;
@@ -19,7 +19,7 @@ public class MessageReceiver implements Runnable{
         messageListener = listener;
         try{
             clientSocket.setSoTimeout(5000);
-            input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))
+            input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         }catch (IOException ioException){
             ioException.printStackTrace();
         }
