@@ -1,11 +1,11 @@
-package pl.javahowtoprogramgui.section_26.e_24_10;
+package pl.javahowtoprogramgui.section_26.e_24_10.server;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-import static pl.javahowtoprogramgui.section_26.e_24_10.SocketMessengerConstants.*;
+import static pl.javahowtoprogramgui.section_26.e_24_10.server.SocketMessengerConstants.*;
 
 public class MulticastSender implements Runnable{
     private byte[] messageBytes;

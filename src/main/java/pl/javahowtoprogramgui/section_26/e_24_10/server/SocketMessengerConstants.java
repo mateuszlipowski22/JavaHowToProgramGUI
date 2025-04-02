@@ -1,4 +1,4 @@
-package pl.javahowtoprogramgui.section_26.e_24_10;
+package pl.javahowtoprogramgui.section_26.e_24_10.server;
 
 public interface SocketMessengerConstants {
 

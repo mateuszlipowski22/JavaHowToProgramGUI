@@ -1,4 +1,4 @@
-package pl.javahowtoprogramgui.section_26.e_24_10;
+package pl.javahowtoprogramgui.section_26.e_24_10.server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.net.SocketTimeoutException;
 import java.util.Objects;
 import java.util.StringTokenizer;
 
-import static pl.javahowtoprogramgui.section_26.e_24_10.SocketMessengerConstants.*;
+import static pl.javahowtoprogramgui.section_26.e_24_10.server.SocketMessengerConstants.*;
 
 public class MessageReceiver implements Runnable{
     private BufferedReader input;

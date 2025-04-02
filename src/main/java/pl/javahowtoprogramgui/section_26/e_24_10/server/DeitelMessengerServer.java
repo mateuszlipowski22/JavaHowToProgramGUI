@@ -1,4 +1,4 @@
-package pl.javahowtoprogramgui.section_26.e_24_10;
+package pl.javahowtoprogramgui.section_26.e_24_10.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static pl.javahowtoprogramgui.section_26.e_24_10.SocketMessengerConstants.*;
+import static pl.javahowtoprogramgui.section_26.e_24_10.server.SocketMessengerConstants.*;
 
 public class DeitelMessengerServer implements MessageListener{
 
