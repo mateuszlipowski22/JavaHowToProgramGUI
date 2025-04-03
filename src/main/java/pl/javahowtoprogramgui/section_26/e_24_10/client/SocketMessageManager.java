@@ -1,7 +1,6 @@
 package pl.javahowtoprogramgui.section_26.e_24_10.client;
 
 import pl.javahowtoprogramgui.section_26.e_24_10.server.MessageListener;
-import pl.javahowtoprogramgui.section_26.e_24_10.server.MessageReceiver;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -11,7 +10,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import static pl.javahowtoprogramgui.section_26.e_24_10.server.SocketMessengerConstants.
+import static pl.javahowtoprogramgui.section_26.e_24_10.server.SocketMessengerConstants.*;
 
 public class SocketMessageManager implements MessageManager{
     private Socket clientSocket;
@@ -22,7 +21,7 @@ public class SocketMessageManager implements MessageManager{
 
     public SocketMessageManager(String serverAddress) {
         this.serverAddress = serverAddress;
-        serverExecutor = Executors.newCachedThreadPool()
+        serverExecutor = Executors.newCachedThreadPool();
     }
 
     @Override
