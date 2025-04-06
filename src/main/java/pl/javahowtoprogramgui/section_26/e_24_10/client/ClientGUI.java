@@ -41,7 +41,7 @@ public class ClientGUI extends JFrame {
         connectMenuItem = new JMenuItem("Connect", connectIcon);
         connectMenuItem.setMnemonic('C');
 
-        ActionListener connectListener = new ConnectLisetener();
+        ActionListener connectListener = new ConnectListener();
         connectButton.addActionListener(connectListener);
         connectMenuItem.addActionListener(connectListener);
 
@@ -81,12 +81,9 @@ public class ClientGUI extends JFrame {
         Icon sendIcon = new ImageIcon(getClass().getResource("images/Send.gif"));
         sendButton = new JButton("Send", sendIcon);
         sendButton.setEnabled(false);
-        sendButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                messageManager.sendMessage(userName, inputArea.getText());
-                inputArea.setText("");
-            }
+        sendButton.addActionListener(e -> {
+            messageManager.sendMessage(userName, inputArea.getText());
+            inputArea.setText("");
         });
 
         Box box = new Box(BoxLayout.X_AXIS);
@@ -110,5 +107,60 @@ public class ClientGUI extends JFrame {
                     }
                 }
         );
+    }
+
+    private class ConnectListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            messageManager.connect(messageListener);
+            userName = JOptionPane.showInputDialog(ClientGUI.this);
+
+            messageArea.setText("");
+            connectButton.setEnabled(false);
+            connectMenuItem.setEnabled(false);
+            disconnectButton.setEnabled(true);
+            disconnectMenuItem.setEnabled(true);
+            sendButton.setEnabled(true);
+            inputArea.setEditable(true);
+            inputArea.requestFocus();
+            statusBar.setText("Connected: " + userName);
+        }
+    }
+
+    private class DisconnectListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            messageManager.disconnect(messageListener);
+            sendButton.setEnabled(false);
+            disconnectButton.setEnabled(false);
+            disconnectMenuItem.setEnabled(false);
+            inputArea.setEditable(false);
+            connectButton.setEnabled(true);
+            connectMenuItem.setEnabled(true);
+            statusBar.setText("Not Connected");
+        }
+    }
+
+    private class MyMessageListener implements MessageListener{
+        public void messageReceived(String from, String message){
+            SwingUtilities.invokeLater(new MessageDisplayer(from, message));
+        }
+    }
+
+    private class MessageDisplayer implements Runnable{
+        private String fromUser;
+        private String messageBody;
+
+        public MessageDisplayer(String fromUser, String messageBody) {
+            this.fromUser = fromUser;
+            this.messageBody = messageBody;
+        }
+
+        @Override
+        public void run() {
+            messageArea.append("\n"+fromUser+"> "+messageBody);
+        }
     }
 }
