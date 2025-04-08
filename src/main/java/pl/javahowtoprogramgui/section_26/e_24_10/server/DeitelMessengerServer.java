@@ -17,7 +17,7 @@ public class DeitelMessengerServer implements MessageListener{
 
         try{
             ServerSocket serverSocket = new ServerSocket(SERVER_PORT, 100);
-            System.out.printf("%s%d%s","Server listening on port ", SERVER_PORT);
+            System.out.printf("%s%d%s","Server listening on port ", SERVER_PORT," ...");
 
             while(true){
                 Socket clientSocket = serverSocket.accept();

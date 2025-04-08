@@ -35,7 +35,7 @@ public class ClientGUI extends JFrame {
         menuBar.add(serverMenu);
         setJMenuBar(menuBar);
 
-        Icon connectIcon = new ImageIcon(getClass().getResource("images/Connect.gif"));
+        Icon connectIcon = new ImageIcon(getClass().getResource("/images/Connect.gif"));
 
         connectButton = new JButton("Connect", connectIcon);
         connectMenuItem = new JMenuItem("Connect", connectIcon);
@@ -45,7 +45,8 @@ public class ClientGUI extends JFrame {
         connectButton.addActionListener(connectListener);
         connectMenuItem.addActionListener(connectListener);
 
-        Icon disconnectIcon = new ImageIcon(getClass().getResource("images/Disconnect.gif"));
+
+        Icon disconnectIcon = new ImageIcon(getClass().getResource("/images/Disconnect.gif"));
         disconnectButton = new JButton("Disconnect", disconnectIcon);
         disconnectMenuItem = new JMenuItem("Disconnect", disconnectIcon);
         disconnectMenuItem.setMnemonic('D');
@@ -78,7 +79,8 @@ public class ClientGUI extends JFrame {
         inputArea.setWrapStyleWord(true);
         inputArea.setLineWrap(true);
 
-        Icon sendIcon = new ImageIcon(getClass().getResource("images/Send.gif"));
+
+        Icon sendIcon = new ImageIcon(getClass().getResource("/images/Send.gif"));
         sendButton = new JButton("Send", sendIcon);
         sendButton.setEnabled(false);
         sendButton.addActionListener(e -> {
@@ -114,7 +116,7 @@ public class ClientGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             messageManager.connect(messageListener);
-            userName = JOptionPane.showInputDialog(ClientGUI.this);
+            userName = JOptionPane.showInputDialog(ClientGUI.this, "Enter user name");
 
             messageArea.setText("");
             connectButton.setEnabled(false);
